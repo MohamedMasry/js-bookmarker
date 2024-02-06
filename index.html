@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker - Mohamed Essam Ahmed</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/fontawesome.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+</head>
+
+<body>
+
+
+    <button onclick="darkToggle()" class="position-relative dark-toggle rounded-pill">
+        <div class="dark-ball rounded-circle position-relative ">
+            <div class="dark-icons d-flex flex-column gap-2 justify-content-center">
+                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-sun"></i>
+            </div>
+        </div>
+    </button>
+
+
+    <!-- Form area -->
+
+    <form class="glassy mx-auto w-50 p-5 my-5 overflow-hidden">
+        <div class="form-header">
+            <h1 class="text-center mb-4">
+
+                <i class="fa-solid fa-book-bookmark"></i>
+                <i class="fa-solid fa-book-open"></i>
+                <i class="fa-solid fa-bookmark"></i>
+                Bookmarker
+            </h1>
+        </div>
+
+
+        <label for="siteName">Site Name:</label>
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-bookmark"></i></span>
+            <input class="form-control" type="email" id="siteName">
+
+        </div>
+        <div id="siteNameInvalid" class=" d-none">
+            <span class="text-danger">
+                Name must be more than 2 letters.
+            </span>
+        </div>
+
+        <label for="siteUrl">Site Url:</label>
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-link"></i></span>
+            <input class="form-control" type="url" id="siteUrl">
+        </div>
+        <div id="siteUrlInvalid" class=" d-none">
+            <span class="text-danger">
+                Site url must be Valid.
+            </span>
+        </div>
+
+        <button id="addBtn" type="button" class="btn btn-dark mt-3 " onclick="addBookmark()">Add Site</button>
+        <button id="updateBtn" style="display: none;" type="button" class="btn btn-warning mt-3 "
+            onclick="setUpdate()">Update</button>
+        <button id="clearBtn" type="button" class="btn btn-dark mt-3 " onclick="clearForm()">Clear</button>
+
+    </form>
+
+    <div class="modal fade"  id="errorModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title text-danger text-center mb-3"><i class="fa-solid fa-triangle-exclamation fa-shake"></i></h2>
+              <h4>Site Name or Url is not valid, Please follow the rules below :</h4>
+            </div>
+            <div class="modal-body">
+                <h5><i class="fa-solid fa-circle-arrow-right text-danger"></i> Name must be more than 2 letters.</h5>
+                <h5><i class="fa-solid fa-circle-arrow-right text-danger"></i> Site url must be Valid.</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade"  id="successModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body text-center">
+                <h2 class="modal-title text-success mb-3"><i class="fa-regular fa-circle-check fa-bounce"></i></h2>
+              <h4>Site Added Successfully</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Search area -->
+
+    <div class="search-area input-group my-5 w-25 mx-auto">
+        <span class="input-group-text glassy" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input id="searchProd" oninput="searchProducts()" type="search" class="form-control" placeholder="Search..."
+            aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+
+    <!-- display table area -->
+    <div id="display-table" class="mb-5 mx-auto w-75 position-relative">
+        <button onclick="clearTable()" class="btn btn-dark position-absolute clear-table-btn">Clear Table</button>
+
+        <div class="glassy table-responsive">
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Website Name</th>
+                        <th>Visit</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="websitesTable">
+
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

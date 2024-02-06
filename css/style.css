@@ -1,0 +1,188 @@
+/* Global classes */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body ::selection {
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode ::selection {
+  color: black;
+  background: #31d2f2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #ffe3e3, #b8eeee, #ffe3e3, #b8eeee);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  color: black;
+}
+
+h1 {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  transition-duration: 0s;
+  font-family: 'Pacifico', cursive;
+}
+
+
+h1 i {
+  font-size: 30px;
+  position: absolute;
+  transform: translate(-120%,30%);
+  transition-duration: 1s;
+}
+
+h1 .fa-book-bookmark {
+  transform: translate(-120%,30%) scaleX(0.5) scale(0.7);
+  opacity: 0;
+}
+
+h1 .fa-bookmark{
+  font-size: 25px;
+  color: black;
+  transform: translate(-130%,-350%);
+}
+
+h1 .fa-book-open{
+  opacity: 1;
+}
+
+/* hovering */
+
+h1:hover .fa-bookmark{
+  color: red;
+  transform: translate(-130%,10%) scale(0.6);
+}
+
+h1:hover .fa-book-bookmark{
+  transform: translate(-120%,30%) scaleX(1) scale(1);
+  opacity: 1;
+}
+h1:hover .fa-book-open{
+  transform: translate(-110%,30%) scaleX(0);
+  opacity: 0;
+}
+
+
+
+
+.dark-mode {
+  background: linear-gradient(90deg, #2c0b0b, #18292e, #2c0b0b, #18292e);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  color: white;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.dark-toggle {
+  border: 0;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  background-color: rgba(185, 185, 185, 0.514);
+  width: 100px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0px auto;
+  top: 25px;
+  display: flex;
+  align-items: center;
+  transition: color 0s;
+}
+
+.dark-ball{
+  background-color: white;
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  font-size: 30px;
+}
+
+.d-ball-off {
+  transform: translateX(0%);
+}
+
+.d-ball-on {
+  transform: translateX(100%);
+  background-color: #167d91;
+  color: white;
+}
+
+.dark-icons i{
+transition: color 0s;
+}
+
+.dark-icons {
+  transform: translateY(10%);
+  transition: transform 0.3s;
+ 
+}
+
+.d-ball-off .dark-icons{
+  transform:translateY(10%) rotate(0deg);
+}
+.d-ball-on .dark-icons{
+  transform:translateY(10%) rotate(-180deg);
+}
+
+.glassy {
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.6px);
+}
+
+form>span{
+  margin-bottom: 50px;
+}
+
+form .form-control:focus {
+  box-shadow: 0 0 5px #0000005c;
+  border: 1px solid rgba(0, 0, 0, 0.501);
+}
+
+.modal-header {
+  border: 0;
+}
+.modal-body h2 i {
+  font-size: 70px;
+}
+
+.search-area>.form-control:focus {
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.clear-table-btn {
+  right: 20px;
+  top: -50px;
+}
+
+
